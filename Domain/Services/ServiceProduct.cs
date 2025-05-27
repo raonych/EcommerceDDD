@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Services
 {
-    internal class ServiceProduct : IServiceProduct
+    public class ServiceProduct : IServiceProduct
     {
 
         private readonly IProduct _IProduct;
