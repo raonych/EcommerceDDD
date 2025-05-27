@@ -12,9 +12,34 @@ namespace AspNetCoreGeneratedDocument
     using global::Microsoft.AspNetCore.Mvc;
     using global::Microsoft.AspNetCore.Mvc.Rendering;
     using global::Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\Areas\Identity\Pages\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity
+
+#nullable disable
+    ;
+#nullable restore
+#line 2 "C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\Areas\Identity\Pages\_ViewImports.cshtml"
+using Web_ECommerce.Areas.Identity
+
+#nullable disable
+    ;
+#nullable restore
+#line 3 "C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\Areas\Identity\Pages\_ViewImports.cshtml"
+using Web_ECommerce.Areas.Identity.Pages
+
+#nullable disable
+    ;
+#nullable restore
+#line 5 "C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\Areas\Identity\Pages\_ViewImports.cshtml"
+using Entities.Entities
+
+#nullable disable
+    ;
     #line default
     #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"ff2f0c08e4c4522597448f1c553985a289ff77266246dda050b688aa47c4d670", @"/Areas/Identity/Pages/_ViewStart.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"Sha256", @"56f7c7e29a751c45cb6f880255429eea470ccdce6328acafceb48e54d7a1450b", @"/Areas/Identity/Pages/_ViewImports.cshtml")]
     #nullable restore
     internal sealed class Areas_Identity_Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     #nullable disable
