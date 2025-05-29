@@ -18,7 +18,7 @@ namespace Entities.Entities
         [Display(Name = "Produto")]
         [ForeignKey("TB_PRODUTO")]
         [Column(Order = 1)]
-        public int TbProduto { get; set; }
+        public int IdProduto { get; set; }
         public virtual Produto Produto { get; set; }
 
         [Column("CUS_ESTADO")]

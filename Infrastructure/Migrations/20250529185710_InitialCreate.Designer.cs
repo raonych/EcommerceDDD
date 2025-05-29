@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ContextBase))]
-    [Migration("20250527153938_InitialCreate")]
+    [Migration("20250529185710_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -145,14 +145,14 @@ namespace Infrastructure.Migrations
                         .HasColumnName("CUS_ESTADO")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdProduto")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ProdutoId")
                         .HasColumnType("int");
 
                     b.Property<int>("QtdCompra")
                         .HasColumnName("CUS_QTD")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TbProduto")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")

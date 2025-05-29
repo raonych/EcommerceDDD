@@ -97,6 +97,9 @@ namespace Web_ECommerce.Controllers
                         ModelState.AddModelError(item.NomePropriedade, item.mensagem);
                     }
 
+                    ViewBag.alerta = true;
+                    ViewBag.Mensagem = "Verifique, ocorreu algum erro!";
+
                     return View("Edit", produto);
                 }
 
@@ -148,12 +151,5 @@ namespace Web_ECommerce.Controllers
             return Json(await _InterfaceProductApp.ListarProdutosComEstoque());
         }
 
-
-        [HttpPost("/api/AdicionarProdutoCarrinho")]
-        public async Task adicionarProdutoCarrinho(string id, string nome, string qtd) 
-        {
-          ////
-          ////
-        }
     }
 }

@@ -60,6 +60,6 @@ namespace ApplicationApp.OpenApp
         public async Task<List<Produto>> ListarProdutosComEstoque()
         {
             return await _IServiceProduct.ListarProdutosComEstoque();
-; ;     }
+        }
     }
 }

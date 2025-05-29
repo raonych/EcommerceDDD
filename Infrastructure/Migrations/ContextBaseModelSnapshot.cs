@@ -143,14 +143,14 @@ namespace Infrastructure.Migrations
                         .HasColumnName("CUS_ESTADO")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdProduto")
+                        .HasColumnType("int");
+
                     b.Property<int?>("ProdutoId")
                         .HasColumnType("int");
 
                     b.Property<int>("QtdCompra")
                         .HasColumnName("CUS_QTD")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TbProduto")
                         .HasColumnType("int");
 
                     b.Property<string>("UserId")

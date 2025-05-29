@@ -195,7 +195,7 @@ namespace Infrastructure.Migrations
                 {
                     CUS_ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TbProduto = table.Column<int>(nullable: false),
+                    IdProduto = table.Column<int>(nullable: false),
                     ProdutoId = table.Column<int>(nullable: true),
                     CUS_ESTADO = table.Column<int>(nullable: false),
                     CUS_QTD = table.Column<int>(nullable: false),
