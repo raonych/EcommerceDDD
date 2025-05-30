@@ -20,3 +20,4 @@ C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Entities\obj\Debug\netcoreapp3.1\En
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Entities\obj\Debug\netcoreapp3.1\Entities.dll
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Entities\obj\Debug\netcoreapp3.1\Entities.pdb
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Entities\obj\Debug\netcoreapp3.1\Entities.genruntimeconfig.cache
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Entities\obj\Debug\netcoreapp3.1\Entities.sourcelink.json

@@ -22,3 +22,4 @@ C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Infrastructure\obj\Debug\netcoreapp
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Infrastructure\obj\Debug\netcoreapp3.1\Infrastr.15EFFBFE.Up2Date
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.dll
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.pdb
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Infrastructure\obj\Debug\netcoreapp3.1\Infrastructure.sourcelink.json

@@ -22,3 +22,4 @@ C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\ApplicationApp\obj\Debug\netcoreapp
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\ApplicationApp\obj\Debug\netcoreapp3.1\Applicat.6086FC76.Up2Date
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\ApplicationApp\obj\Debug\netcoreapp3.1\ApplicationApp.dll
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\ApplicationApp\obj\Debug\netcoreapp3.1\ApplicationApp.pdb
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\ApplicationApp\obj\Debug\netcoreapp3.1\ApplicationApp.sourcelink.json

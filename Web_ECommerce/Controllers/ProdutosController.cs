@@ -17,11 +17,13 @@ namespace Web_ECommerce.Controllers
         public readonly UserManager<ApplicationUser> _userManager;
 
         public readonly InterfaceProductApp _InterfaceProductApp;
-        public ProdutosController(InterfaceProductApp interfaceProductApp, UserManager<ApplicationUser> userManager)
+
+        public readonly InterfaceCompraUsuarioApp _interfaceCompraUsuarioApp;
+        public ProdutosController(InterfaceProductApp interfaceProductApp, UserManager<ApplicationUser> userManager, InterfaceCompraUsuarioApp interfaceCompraUsuarioApp)
         {
             _InterfaceProductApp = interfaceProductApp;
             _userManager = userManager;
-
+            _interfaceCompraUsuarioApp = interfaceCompraUsuarioApp;
         }
         // GET: ProdutosController
         public async Task<IActionResult> Index()
@@ -149,6 +151,38 @@ namespace Web_ECommerce.Controllers
         public async Task<JsonResult> ListarProdutosComEstoque()
         {
             return Json(await _InterfaceProductApp.ListarProdutosComEstoque());
+        }
+
+        public async Task<ActionResult> ListarProdutosCarrinhoUsuario() 
+        {
+            var idUsuario = await RetornarIdUsuarioLogado();
+
+            return View(await _InterfaceProductApp.ListarProdutosCarrinhoUsuario(idUsuario));
+
+        }
+
+        public async Task<IActionResult> RemoverCarrinho(int id)
+        {
+            return View(await _InterfaceProductApp.ObterProdutoCarrinho(id));
+        }
+
+        // POST: ProdutosController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> RemoverCarrinho(int id, Produto produto)
+        {
+            try
+            {
+                var produtoDeletar = await _interfaceCompraUsuarioApp.GetEntityById(id);
+
+                await _interfaceCompraUsuarioApp.Delete(produtoDeletar);
+
+                return RedirectToAction(nameof(ListarProdutosCarrinhoUsuario));
+            }
+            catch
+            {
+                return View();
+            }
         }
 
     }
