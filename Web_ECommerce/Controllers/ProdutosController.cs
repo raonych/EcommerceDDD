@@ -1,30 +1,41 @@
-﻿using ApplicationApp.Interfaces;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Security;
+using System.Security.Permissions;
+using System.Threading.Tasks;
+using ApplicationApp.Interfaces;
 using Entities.Entities;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Internal;
-using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
 
 namespace Web_ECommerce.Controllers
 {
+
     [Authorize]
+
     public class ProdutosController : Controller
     {
         public readonly UserManager<ApplicationUser> _userManager;
 
         public readonly InterfaceProductApp _InterfaceProductApp;
 
-        public readonly InterfaceCompraUsuarioApp _interfaceCompraUsuarioApp;
-        public ProdutosController(InterfaceProductApp interfaceProductApp, UserManager<ApplicationUser> userManager, InterfaceCompraUsuarioApp interfaceCompraUsuarioApp)
+        public readonly InterfaceCompraUsuarioApp _InterfaceCompraUsuarioApp;
+
+        private IWebHostEnvironment _environment;
+
+        public ProdutosController(InterfaceProductApp InterfaceProductApp, UserManager<ApplicationUser> userManager, InterfaceCompraUsuarioApp InterfaceCompraUsuarioApp, IWebHostEnvironment environment)
         {
-            _InterfaceProductApp = interfaceProductApp;
+            _InterfaceProductApp = InterfaceProductApp;
             _userManager = userManager;
-            _interfaceCompraUsuarioApp = interfaceCompraUsuarioApp;
+            _InterfaceCompraUsuarioApp = InterfaceCompraUsuarioApp;
+            _environment = environment;
         }
+
         // GET: ProdutosController
         public async Task<IActionResult> Index()
         {
@@ -50,7 +61,6 @@ namespace Web_ECommerce.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Produto produto)
         {
-            
             try
             {
                 var idUsuario = await RetornarIdUsuarioLogado();
@@ -68,6 +78,8 @@ namespace Web_ECommerce.Controllers
                     return View("Create", produto);
                 }
 
+                await SalvarImagemProduto(produto);
+
             }
             catch
             {
@@ -75,6 +87,7 @@ namespace Web_ECommerce.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+
         }
 
         // GET: ProdutosController/Edit/5
@@ -90,7 +103,6 @@ namespace Web_ECommerce.Controllers
         {
             try
             {
-
                 await _InterfaceProductApp.UpdateProduct(produto);
                 if (produto.Notitycoes.Any())
                 {
@@ -99,7 +111,7 @@ namespace Web_ECommerce.Controllers
                         ModelState.AddModelError(item.NomePropriedade, item.mensagem);
                     }
 
-                    ViewBag.alerta = true;
+                    ViewBag.Alerta = true;
                     ViewBag.Mensagem = "Verifique, ocorreu algum erro!";
 
                     return View("Edit", produto);
@@ -153,14 +165,16 @@ namespace Web_ECommerce.Controllers
             return Json(await _InterfaceProductApp.ListarProdutosComEstoque());
         }
 
-        public async Task<ActionResult> ListarProdutosCarrinhoUsuario() 
+        public async Task<IActionResult> ListarProdutosCarrinhoUsuario()
         {
             var idUsuario = await RetornarIdUsuarioLogado();
-
             return View(await _InterfaceProductApp.ListarProdutosCarrinhoUsuario(idUsuario));
 
         }
 
+
+
+        // GET: ProdutosController/Delete/5
         public async Task<IActionResult> RemoverCarrinho(int id)
         {
             return View(await _InterfaceProductApp.ObterProdutoCarrinho(id));
@@ -173,9 +187,9 @@ namespace Web_ECommerce.Controllers
         {
             try
             {
-                var produtoDeletar = await _interfaceCompraUsuarioApp.GetEntityById(id);
+                var produtoDeletar = await _InterfaceCompraUsuarioApp.GetEntityById(id);
 
-                await _interfaceCompraUsuarioApp.Delete(produtoDeletar);
+                await _InterfaceCompraUsuarioApp.Delete(produtoDeletar);
 
                 return RedirectToAction(nameof(ListarProdutosCarrinhoUsuario));
             }
@@ -184,6 +198,41 @@ namespace Web_ECommerce.Controllers
                 return View();
             }
         }
+
+
+
+        public async Task SalvarImagemProduto(Produto produtoTela)
+        {
+            try
+            {
+                var produto = await _InterfaceProductApp.GetEntityById(produtoTela.Id);
+
+                if (produtoTela.Imagem != null)
+                {
+                    var webRoot = _environment.WebRootPath;
+                    var permissionSet = new PermissionSet(PermissionState.Unrestricted);
+                    var writePermission = new FileIOPermission(FileIOPermissionAccess.Append, string.Concat(webRoot, "/imgProdutos"));
+                    permissionSet.AddPermission(writePermission);
+
+                    var Extension = System.IO.Path.GetExtension(produtoTela.Imagem.FileName);
+
+                    var NomeArquivo = string.Concat(produto.Id.ToString(), Extension);
+
+                    var diretorioArquivoSalvar = string.Concat(webRoot, "\\imgProdutos\\", NomeArquivo);
+
+                    produtoTela.Imagem.CopyTo(new FileStream(diretorioArquivoSalvar, FileMode.Create));
+
+                    produto.Url = string.Concat("https://localhost:5001", "/imgProdutos/", NomeArquivo);
+
+                    await _InterfaceProductApp.UpdateProduct(produto);
+                }
+            }
+            catch (Exception erro)
+            {
+            }
+
+        }
+
 
     }
 }

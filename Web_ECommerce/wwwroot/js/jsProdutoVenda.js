@@ -43,25 +43,32 @@ ObjetoVenda.CarregaProdutos = function () {
 
             var htmlConteudo = "";
 
-            data.forEach(function (entitie) {
+            data.forEach(function (Entitie) {
 
-                htmlConteudo += "<div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>";
+                htmlConteudo += " <div class='col-xs-12 col-sm-4 col-md-4 col-lg-4'>";
 
-                var idNome = "nome_" + entitie.id;
-                var idQtd = "qtd_" + entitie.id;
+                var idNome = "nome_" + Entitie.id;
+                var idQtd = "qtd_" + Entitie.id;
 
-                htmlConteudo += "<label id='" + idNome + "' > Produto: " + entitie.nome + "</label></br>";
-                htmlConteudo += "<label> Valor: " + entitie.valor + "</label></br>";
+                htmlConteudo += "</br><label id='" + idNome + "' > Produto: " + Entitie.nome + "</label></br>";
+
+                if (Entitie.url != null && Entitie.url != "" && Entitie.url != undefined) {
+
+                    htmlConteudo += "<img width='200' height='100' src='" + Entitie.url + "'/></br>";
+                }
+
+                htmlConteudo += "<label>  Valor: " + Entitie.valor + "</label></br>";
+
                 htmlConteudo += "Quantidade : <input type'number' value='1' id='" + idQtd + "'>";
 
-                htmlConteudo += "<input type='button' onclick='ObjetoVenda.AdicionarCarrinho(" + entitie.id + ")' value = 'Comprar'> </br>";  
+                htmlConteudo += "<input type='button' onclick='ObjetoVenda.AdicionarCarrinho(" + Entitie.id + ")' value ='Comprar'> </br> ";
 
+                htmlConteudo += " </div>";
 
-                htmlConteudo += "</div>";
             });
 
             $("#DivVenda").html(htmlConteudo);
-        } 
+        }
     });
 }
 

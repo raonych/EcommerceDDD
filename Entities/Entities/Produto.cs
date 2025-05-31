@@ -1,4 +1,5 @@
 ﻿using Entities.Notifications;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -33,7 +34,7 @@ namespace Entities.Entities
 
         [Column("PRD_VALO")]
         [Display(Name = "Valor")]
-        public decimal Valor { get; set;}
+        public decimal Valor { get; set; }
 
         [Column("PRD_QTD_ESTOQUE")]
         [Display(Name = "Quantidade Estoque")]
@@ -46,7 +47,7 @@ namespace Entities.Entities
         public virtual ApplicationUser ApplicationUser { get; set; }
 
         [Column("PRD_ESTADO")]
-        [Display(Name = "Estado")]  
+        [Display(Name = "Estado")]
         public bool Estado { get; set; }
 
         [Column("PRD_DATA_CADASTRO")]
@@ -62,7 +63,12 @@ namespace Entities.Entities
 
         [NotMapped]
         public int QtdCompra { get; set; }
-        
+
+        [NotMapped]
+        public IFormFile Imagem { get; set; }
+
+        [Column("PRD_URL")]
+        public string Url { get; set; } 
 
     }
 }

@@ -252,3 +252,13 @@ C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Debug\netcoreapp3
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Debug\netcoreapp3.1\Web_ECommerce.sourcelink.json
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\ListarProdutosCarrinhoUsuario.cshtml.g.cs
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Debug\netcoreapp3.1\Razor\Views\Produtos\RemoverCarrinho.cshtml.g.cs
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Http.Features.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Debug\netcoreapp3.1\Razor\Views\CompraUsuario\FinalizarCompra.cshtml.g.cs
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Debug\netcoreapp3.1\Razor\Views\CompraUsuario\MinhasCompras.cshtml.g.cs
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\PdfSharpCore.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\QRCoder.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\ICSharpCode.SharpZipLib.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\SixLabors.Fonts.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\SixLabors.ImageSharp.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\bin\Debug\netcoreapp3.1\de\PdfSharpCore.resources.dll
