@@ -1,6 +1,7 @@
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\Web_ECommerce.exe
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\css\site.css
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\favicon.ico
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\imgProdutos\2.jpg
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\imgProdutos\3.jpg
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\carrinho.png
 C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\obj\Release\netcoreapp3.1\PubTmp\Out\wwwroot\img\loja-virtual-1.png

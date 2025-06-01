@@ -131,6 +131,32 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("Entities.Entities.Compra", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("COM_ID")
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("DataCompra")
+                        .HasColumnName("COM_DATA_COMPRA")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Estado")
+                        .HasColumnName("COM_ESTADO")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TB_COMPRA");
+                });
+
             modelBuilder.Entity("Entities.Entities.CompraUsuario", b =>
                 {
                     b.Property<int>("Id")
@@ -139,8 +165,14 @@ namespace Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int?>("CompraId")
+                        .HasColumnType("int");
+
                     b.Property<int>("Estado")
                         .HasColumnName("CUS_ESTADO")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdCompra")
                         .HasColumnType("int");
 
                     b.Property<int>("IdProduto")
@@ -158,11 +190,49 @@ namespace Infrastructure.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CompraId");
+
                     b.HasIndex("ProdutoId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("TB_COMPRA_USUARIO");
+                });
+
+            modelBuilder.Entity("Entities.Entities.LogSistema", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("JsonInformacao")
+                        .HasColumnName("LOG_JSONINFORMACAO")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomeAction")
+                        .HasColumnName("LOG_ACTION")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NomeController")
+                        .HasColumnName("LOG_CONTROLLER")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("TipoLog")
+                        .HasColumnName("LOG_TIPOLOG")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TB_LOGSISTEMA");
                 });
 
             modelBuilder.Entity("Entities.Entities.Produto", b =>
@@ -357,12 +427,30 @@ namespace Infrastructure.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("Entities.Entities.Compra", b =>
+                {
+                    b.HasOne("Entities.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("Entities.Entities.CompraUsuario", b =>
                 {
+                    b.HasOne("Entities.Entities.Compra", "Compra")
+                        .WithMany()
+                        .HasForeignKey("CompraId");
+
                     b.HasOne("Entities.Entities.Produto", "Produto")
                         .WithMany()
                         .HasForeignKey("ProdutoId");
 
+                    b.HasOne("Entities.Entities.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("Entities.Entities.LogSistema", b =>
+                {
                     b.HasOne("Entities.Entities.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId");

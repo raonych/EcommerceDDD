@@ -4,9 +4,10 @@ using Microsoft.AspNetCore.Mvc;
 using PdfSharpCore.Drawing;
 using QRCoder;
 using System;
-using System.Collections;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Web_ECommerce.Models
@@ -24,12 +25,12 @@ namespace Web_ECommerce.Models
 
             Bitmap qrCodeImage = qrCode.GetGraphic(20);
 
-            var bitmapBytes = BitMapToBytes(qrCodeImage);
+            var bitmapBytes = BitmapToBytes(qrCodeImage);
 
             return bitmapBytes;
         }
-        
-        private static byte[] BitMapToBytes(Bitmap img)
+
+        private static byte[] BitmapToBytes(Bitmap img)
         {
             using (MemoryStream stream = new MemoryStream())
             {
@@ -43,7 +44,6 @@ namespace Web_ECommerce.Models
         {
             using (var doc = new PdfSharpCore.Pdf.PdfDocument())
             {
-
                 #region Configuracoes da folha
                 var page = doc.AddPage();
 
@@ -61,11 +61,11 @@ namespace Web_ECommerce.Models
                 numeracaoPagina.DrawString(Convert.ToString(qtdPaginas), new PdfSharpCore.Drawing.XFont("Arial", 10), corFonte, new PdfSharpCore.Drawing.XRect(575, 825, page.Width, page.Height));
                 #endregion
 
-                #region Logo
+                #region Logo 
                 var webRoot = _environment.WebRootPath;
 
                 var logoFatura = string.Concat(webRoot, "/img/", "loja-virtual-1.png");
-                
+
                 XImage imagem = XImage.FromFile(logoFatura);
 
                 graphics.DrawImage(imagem, 20, 5, 300, 50);
@@ -82,7 +82,7 @@ namespace Web_ECommerce.Models
 
                 #endregion
 
-                #region Informações 2 
+                #region Informações 2
 
                 var alturaTituloDetalhesY = 120;
 
@@ -104,7 +104,7 @@ namespace Web_ECommerce.Models
 
                 alturaTituloDetalhesY += 9;
                 detalhes.DrawString("Valor Total:", tituloInfo_1, corFonte, new XRect(25, alturaTituloDetalhesY, page.Width, page.Height));
-                detalhes.DrawString(compraUsuario.QuantidadeProdutos.ToString(), tituloInfo_1, corFonte, new XRect(150, alturaTituloDetalhesY, page.Width, page.Height));
+                detalhes.DrawString(compraUsuario.ValorTotal.ToString(), tituloInfo_1, corFonte, new XRect(150, alturaTituloDetalhesY, page.Width, page.Height));
 
                 var tituloInfo_2 = new PdfSharpCore.Drawing.XFont("Arial", 8, XFontStyle.Bold);
 
@@ -127,7 +127,6 @@ namespace Web_ECommerce.Models
                 alturaTituloDetalhesY += 620;
                 detalhes.DrawString("Canhoto com QrCode para pagamento online.", tituloInfo_2, corFonte, new XRect(20, alturaTituloDetalhesY, page.Width, page.Height));
 
-
                 #endregion
 
                 using (MemoryStream stream = new MemoryStream())
@@ -137,7 +136,10 @@ namespace Web_ECommerce.Models
                     doc.Save(stream, false);
                     return File(stream.ToArray(), contentType, "BoletoLojaOnline.pdf");
                 }
+
             }
+
         }
+
     }
 }
