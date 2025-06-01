@@ -1,0 +1,8 @@
+is_global = true
+build_property.RootNamespace = Web_ECommerce
+build_property.ProjectDir = C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Web_ECommerce\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.CsWinRTUseWindowsUIXamlProjections = false
+build_property.EffectiveAnalysisLevelStyle = 
+build_property.EnableCodeStyleSeverity = 

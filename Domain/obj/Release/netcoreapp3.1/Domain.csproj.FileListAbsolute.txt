@@ -1,0 +1,14 @@
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\bin\Release\netcoreapp3.1\Domain.deps.json
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\bin\Release\netcoreapp3.1\Domain.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\bin\Release\netcoreapp3.1\Domain.pdb
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\bin\Release\netcoreapp3.1\Entities.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\bin\Release\netcoreapp3.1\Entities.pdb
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.csproj.AssemblyReference.cache
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.AssemblyInfoInputs.cache
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.AssemblyInfo.cs
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.csproj.CoreCompileInputs.cache
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.sourcelink.json
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.csproj.Up2Date
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.dll
+C:\Users\raony\dev\EcommerceDDD\EcommerceDDD\Domain\obj\Release\netcoreapp3.1\Domain.pdb
