@@ -125,6 +125,7 @@ namespace Web_ECommerce.Areas.Identity.Pages.Account
                     Idade = Input.Idade,
                     Estado = true,
                     Tipo = Entities.Entities.Enums.TipoUsuario.Comum,
+                    Nome = Input.Nome
 
                 };
                 var result = await _userManager.CreateAsync(user, Input.Password);

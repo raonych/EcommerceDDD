@@ -1,34 +1,50 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ApplicationApp.Interfaces;
+using Entities.Entities;
+using Infrastructure.Configuration;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Entities.Entities;
-using Infrastructure.Configuration;
-using ApplicationApp.Interfaces;
+using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Web_ECommerce.Controllers
 {
-    public class LogSistemasController : Controller
+    [Authorize]
+    [LogActionFilter]
+    public class LogSistemasController : BaseController
     {
-        private readonly InterfaceLogSistemaApp _InterfaceLogSistemaApp;
 
-        public LogSistemasController(InterfaceLogSistemaApp InterfaceLogSistemaApp)
+        public LogSistemasController(
+            UserManager<ApplicationUser> userManager,
+            ILogger<ProdutosController> logger,
+            InterfaceLogSistemaApp InterfaceLogSistemaApp)
+        : base(logger, userManager, InterfaceLogSistemaApp)
         {
-            _InterfaceLogSistemaApp = InterfaceLogSistemaApp;
         }
 
         // GET: LogSistemas
         public async Task<IActionResult> Index()
         {
+
+            if (!await UsuarioAdministrador())
+                return RedirectToAction("Index", "Home");
+            
             return View(await _InterfaceLogSistemaApp.List());
         }
 
         // GET: LogSistemas/Details/5
         public async Task<IActionResult> Details(int? id)
         {
+
+            if (!await UsuarioAdministrador())
+                return RedirectToAction("Index", "Home");
+
             if (id == null)
             {
                 return NotFound();
