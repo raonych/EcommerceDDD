@@ -37,7 +37,9 @@ namespace Infrastructure.Configuration
         }
         private string GetStringConnectionConfig() 
         {
-            string strCon = "Server=tcp:devecommerce.database.windows.net,1433;Initial Catalog=devecommerce;Persist Security Info=False;User ID=devecommerce;Password=senha123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+            string strCon = "Data Source=DESKTOP-ANGEL\\SQLEXPRESS;Initial Catalog=DDD_ECOMMERCE;Integrated Security=False;User ID=sa;Password=1234;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;";
+                //conexão azure server
+                //string strCon = "Server=tcp:devecommerce.database.windows.net,1433;Initial Catalog=devecommerce;Persist Security Info=False;User ID=devecommerce;Password=senha123!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
             return strCon;
         }
 

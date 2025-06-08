@@ -2,6 +2,25 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.18": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Protocols.OpenIdConnect": "5.5.0"
+        },
+        "compile": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll": {
+            "related": ".xml"
+          }
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.AspNetCore.Cryptography.Internal/3.1.32": {
         "type": "package",
         "compile": {
@@ -3481,6 +3500,23 @@
           "bin/placeholder/Entities.dll": {}
         }
       },
+      "HelpConfig/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "ApplicationApp": "1.0.0",
+          "Domain": "1.0.0",
+          "Entities": "1.0.0",
+          "Infrastructure": "1.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.8"
+        },
+        "compile": {
+          "bin/placeholder/HelpConfig.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HelpConfig.dll": {}
+        }
+      },
       "Infrastructure/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
@@ -3501,6 +3537,21 @@
     }
   },
   "libraries": {
+    "Microsoft.AspNetCore.Authentication.JwtBearer/3.1.18": {
+      "sha512": "aymAjo2uHu67eKYlD1b7VLgx9ixbUnl7X9ykr3M3Di8upjMSAF8VbIeY+/mIf5BRjK4hhLfCiR5asR7+jV4a5Q==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.authentication.jwtbearer/3.1.18",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.dll",
+        "lib/netcoreapp3.1/Microsoft.AspNetCore.Authentication.JwtBearer.xml",
+        "microsoft.aspnetcore.authentication.jwtbearer.3.1.18.nupkg.sha512",
+        "microsoft.aspnetcore.authentication.jwtbearer.nuspec"
+      ]
+    },
     "Microsoft.AspNetCore.Cryptography.Internal/3.1.32": {
       "sha512": "tULjwFie6fYm4o6WfD+aHTTrps2I22MQVZpmEWaJumFmzZWA1nHsKezuCBl/u/iKiXtN3npL6MoINaiLHURr/A==",
       "type": "package",
@@ -10041,6 +10092,11 @@
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
     },
+    "HelpConfig/1.0.0": {
+      "type": "project",
+      "path": "../HelpConfig/HelpConfig.csproj",
+      "msbuildProject": "../HelpConfig/HelpConfig.csproj"
+    },
     "Infrastructure/1.0.0": {
       "type": "project",
       "path": "../Infrastructure/Infrastructure.csproj",
@@ -10051,7 +10107,9 @@
     ".NETCoreApp,Version=v3.1": [
       "ApplicationApp >= 1.0.0",
       "Domain >= 1.0.0",
+      "HelpConfig >= 1.0.0",
       "Infrastructure >= 1.0.0",
+      "Microsoft.AspNetCore.Authentication.JwtBearer >= 3.1.18",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 3.1.6",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 3.1.32",
       "Microsoft.AspNetCore.Identity.UI >= 3.1.32",
@@ -10102,6 +10160,9 @@
             "C:\\Users\\raony\\dev\\EcommerceDDD\\EcommerceDDD\\Domain\\Domain.csproj": {
               "projectPath": "C:\\Users\\raony\\dev\\EcommerceDDD\\EcommerceDDD\\Domain\\Domain.csproj"
             },
+            "C:\\Users\\raony\\dev\\EcommerceDDD\\EcommerceDDD\\HelpConfig\\HelpConfig.csproj": {
+              "projectPath": "C:\\Users\\raony\\dev\\EcommerceDDD\\EcommerceDDD\\HelpConfig\\HelpConfig.csproj"
+            },
             "C:\\Users\\raony\\dev\\EcommerceDDD\\EcommerceDDD\\Infrastructure\\Infrastructure.csproj": {
               "projectPath": "C:\\Users\\raony\\dev\\EcommerceDDD\\EcommerceDDD\\Infrastructure\\Infrastructure.csproj"
             }
@@ -10124,6 +10185,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "target": "Package",
+            "version": "[3.1.18, )"
+          },
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
             "target": "Package",
             "version": "[3.1.6, )"

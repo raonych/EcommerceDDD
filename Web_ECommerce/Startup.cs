@@ -6,11 +6,14 @@ using Domain.Interfaces.InterfaceCompraUsuario;
 using Domain.Interfaces.InterfaceLogSistema;
 using Domain.Interfaces.InterfaceProduct;
 using Domain.Interfaces.InterfaceServices;
+using Domain.Interfaces.InterfaceUsuario;
 using Domain.Services;
 using Entities.Entities;
+using HelpConfig;
 using Infrastructure.Configuration;
 using Infrastructure.Repository.Generics;
 using Infrastructure.Repository.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -20,6 +23,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,24 +52,10 @@ namespace Web_ECommerce
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            // Interface e Repositorio
-            services.AddSingleton(typeof(IGeneric<>), typeof(RepositoryGenerics<>));
-            services.AddSingleton<IProduct, RepositoryProduct>();
-            services.AddSingleton<ICompraUsuario, RepositoryCompraUsuario>();
-            services.AddSingleton<ICompra, RepositoryCompra>();
-            services.AddSingleton<ILogSistema, RepositoryLogSistema>();
-
-            // Interface aplicação 
-            services.AddSingleton<InterfaceProductApp, AppProduct>();
-            services.AddSingleton<InterfaceCompraUsuarioApp, AppCompraUsuario>();
-            services.AddSingleton<InterfaceCompraApp, AppCompra>();
-            services.AddSingleton<InterfaceLogSistemaApp, AppLogSistema>();
-
-            // Serviço Dominio
-            services.AddSingleton<IServiceProduct, ServiceProduct>();
-            services.AddSingleton<IServiceCompraUsuario, ServiceCompraUsuario>();
+            HelpStartup.ConfigureSingleton(services);
 
         }
+
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
